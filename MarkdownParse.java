@@ -1,4 +1,3 @@
-// File reading code from https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public class MarkdownParse {
+
+    
 
     static int findCloseParen(String markdown, int openParen) {
         int closeParen = openParen + 1;
@@ -29,6 +30,7 @@ public class MarkdownParse {
         }
 
     }
+
     public static Map<String, List<String>> getLinks(File dirOrFile) throws IOException {
         Map<String, List<String>> result = new HashMap<>();
         if(dirOrFile.isDirectory()) {

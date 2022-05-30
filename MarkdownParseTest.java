@@ -4,6 +4,7 @@ import org.junit.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MarkdownParseTest {
@@ -64,4 +65,41 @@ public class MarkdownParseTest {
         assertEquals(MarkdownParse.getLinks(contents), expect);
     }
     
+    /**
+     * Lab Report 4 Test Cases for 3 Snippets
+     */
+
+
+     @Test
+     public void testSnip1() throws IOException {
+        String contents = Files.readString(Path.of("snippet1.md"));
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("url.com");
+        expected.add("google.com");
+        expected.add("google.com");
+        expected.add("ucsd.edu");
+        assertEquals(links,expected);
+     }
+
+     @Test
+     public void testSnip2() throws IOException {
+        Path fileName = Path.of("snippet2.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<>();
+
+        assertEquals(expected,links);
+     }
+
+     @Test
+     public void testSnip3() throws IOException {
+        Path fileName = Path.of("snippet3.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("asdf");
+
+        assertEquals(expected,links);
+     }
 }
